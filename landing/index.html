@@ -58,11 +58,15 @@
   --paper-2:#f3f4f1;
   --line:#e3e6e2;
 
-  --jade:#00a86b;
+  --jade:#00a86b;        /* акцент для точек и меток — не под текстом */
   --jade-deep:#04724c;
   --jade-wash:#ebf8f2;
+  /* Заливка под белым текстом: на #00a86b белый даёт 3.08:1 и проваливает
+     AA, поэтому у кнопки своя, затемнённая ступень — 4.84:1. */
+  --jade-btn:#068257;
+  --jade-btn-hover:#0a6b49;
 
-  --amber:#a96500;
+  --amber:#9c5d00;       /* 5.10:1 на бумаге; #a96500 давал 4.46 */
   --red:#b83227;
 
   --on-grad:#ffffff;
@@ -184,7 +188,7 @@ h2{
   display:inline-flex;align-items:center;justify-content:center;
   min-height:3rem;padding:0 1.75rem;
   border:0;border-radius:var(--r-sm);
-  background:var(--jade);color:#fff;
+  background:var(--jade-btn);color:#fff;
   font-family:var(--font-display);font-size:var(--t-small);font-weight:600;
   letter-spacing:0;text-decoration:none;cursor:pointer;
   box-shadow:0 1px 2px rgba(2,20,14,.28), 0 12px 24px -12px rgba(2,20,14,.55);
@@ -192,7 +196,7 @@ h2{
   transition-duration:.18s;
   transition-timing-function:cubic-bezier(.2,0,0,1);
 }
-.btn:hover{background:#00b975}
+.btn:hover{background:var(--jade-btn-hover)}
 .btn:active{scale:.96}
 .btn:focus-visible{outline:2px solid var(--on-grad);outline-offset:3px}
 
@@ -244,12 +248,19 @@ h2{
 
 .markers{border-top:1px solid var(--line)}
 .marker{
-  display:grid;grid-template-columns:5rem 1fr 4.5rem;align-items:center;gap:.625rem;
+  display:grid;grid-template-columns:5rem 1fr;align-items:center;gap:.625rem;
   padding:.625rem 1.25rem;border-bottom:1px solid var(--line);
 }
 .marker:last-child{border-bottom:0}
 .marker dt{font-size:var(--t-micro);color:var(--ink-3)}
-.marker dd{text-align:right;font-size:var(--t-micro);font-variant-numeric:tabular-nums;white-space:nowrap}
+.marker dd{
+  margin:0;display:grid;grid-template-columns:1fr 4.5rem;
+  align-items:center;gap:.625rem;
+}
+.marker .val{
+  text-align:right;font-size:var(--t-micro);
+  font-variant-numeric:tabular-nums;white-space:nowrap;
+}
 .scale{position:relative;height:.5rem}
 .scale .axis{position:absolute;inset-inline:0;top:50%;height:1px;translate:0 -50%;background:var(--line)}
 .scale .norm{position:absolute;top:50%;height:.375rem;translate:0 -50%;border-radius:var(--r-pill);background:var(--paper-2)}
@@ -280,19 +291,34 @@ section.light{padding-block:clamp(3.5rem,8vw,6rem)}
   padding:0;list-style:none;
   counter-reset:step;
 }
-.step{
-  padding-top:1.25rem;border-top:1px solid var(--line);
-  counter-increment:step;
+/* Плитка под хайрлайном — общий приём для шагов, заметок и вопросов. */
+.tile{padding-top:1.25rem;border-top:1px solid var(--line)}
+.tile h3{font-size:1.125rem}
+.tile p{margin-top:.5rem;color:var(--ink-3);text-wrap:pretty;max-width:36ch}
+
+.duo{
+  display:grid;gap:clamp(1.5rem,3vw,2.5rem);
+  margin-top:clamp(2.5rem,5vw,3.5rem);
 }
+
+.faq{
+  display:grid;gap:clamp(1.25rem,2.5vw,2rem);
+  margin:clamp(2.5rem,5vw,3.5rem) 0 0;padding:0;
+}
+.faq dt{
+  font-family:var(--font-display);font-size:1.0625rem;font-weight:600;
+  color:var(--ink);
+}
+.faq dd{margin:.5rem 0 0;color:var(--ink-3);max-width:52ch;text-wrap:pretty}
+
+.step{counter-increment:step}
+.step h3{margin-top:.75rem}
 .step::before{
   content:counter(step,decimal-leading-zero);
   font-family:var(--font-display);font-size:var(--t-micro);font-weight:600;
   font-variant-numeric:tabular-nums;letter-spacing:var(--ls-eyebrow);
-  color:var(--ink-4);
+  color:var(--ink-3);
 }
-.step h3{font-size:1.125rem;margin-top:.75rem}
-.step p{margin-top:.5rem;color:var(--ink-3);text-wrap:pretty;max-width:34ch}
-
 .contact{background:var(--paper-2)}
 .contact .lead{margin-top:1rem}
 .contact a{
@@ -315,7 +341,10 @@ footer p{font-size:var(--t-micro);line-height:1.5;color:var(--ink-3);max-width:7
 @media (min-width:40rem){
   .footline{grid-template-columns:repeat(3,1fr)}
   .steps{grid-template-columns:repeat(3,1fr)}
-  .marker{grid-template-columns:6.5rem 1fr 5.5rem;gap:.875rem;padding-inline:1.5rem}
+  .duo{grid-template-columns:repeat(2,1fr)}
+  .faq{grid-template-columns:repeat(2,1fr);gap:2rem clamp(1.5rem,4vw,4rem)}
+  .marker{grid-template-columns:6.5rem 1fr;gap:.875rem;padding-inline:1.5rem}
+  .marker dd{grid-template-columns:1fr 5.5rem;gap:.875rem}
   .card-cap,.score,.card-note{padding-inline:1.5rem}
 }
 @media (min-width:64rem){
@@ -383,35 +412,43 @@ footer p{font-size:var(--t-micro);line-height:1.5;color:var(--ink-3);max-width:7
         <dl class="markers">
           <div class="marker">
             <dt>Ферритин</dt>
-            <div class="scale" aria-hidden="true">
-              <div class="axis"></div><div class="norm" style="left:11%;width:89%"></div>
-              <div class="pin pin-low" style="left:6%"></div>
-            </div>
-            <dd class="is-low">8&nbsp;нг/мл</dd>
+            <dd>
+              <div class="scale" aria-hidden="true">
+                <div class="axis"></div><div class="norm" style="left:11%;width:89%"></div>
+                <div class="pin pin-low" style="left:6%"></div>
+              </div>
+              <span class="val is-low">8&nbsp;нг/мл</span>
+            </dd>
           </div>
           <div class="marker">
             <dt>MCV</dt>
-            <div class="scale" aria-hidden="true">
-              <div class="axis"></div><div class="norm" style="left:33%;width:34%"></div>
-              <div class="pin pin-low" style="left:23%"></div>
-            </div>
-            <dd class="is-low">74&nbsp;фл</dd>
+            <dd>
+              <div class="scale" aria-hidden="true">
+                <div class="axis"></div><div class="norm" style="left:33%;width:34%"></div>
+                <div class="pin pin-low" style="left:23%"></div>
+              </div>
+              <span class="val is-low">74&nbsp;фл</span>
+            </dd>
           </div>
           <div class="marker">
             <dt>RDW</dt>
-            <div class="scale" aria-hidden="true">
-              <div class="axis"></div><div class="norm" style="left:15%;width:30%"></div>
-              <div class="pin pin-high" style="left:68%"></div>
-            </div>
-            <dd class="is-high">16,8&nbsp;%</dd>
+            <dd>
+              <div class="scale" aria-hidden="true">
+                <div class="axis"></div><div class="norm" style="left:15%;width:30%"></div>
+                <div class="pin pin-high" style="left:68%"></div>
+              </div>
+              <span class="val is-high">16,8&nbsp;%</span>
+            </dd>
           </div>
           <div class="marker">
             <dt>Гемоглобин</dt>
-            <div class="scale" aria-hidden="true">
-              <div class="axis"></div><div class="norm" style="left:36%;width:37%"></div>
-              <div class="pin pin-ok" style="left:35%"></div>
-            </div>
-            <dd class="is-ok">118&nbsp;г/л</dd>
+            <dd>
+              <div class="scale" aria-hidden="true">
+                <div class="axis"></div><div class="norm" style="left:36%;width:37%"></div>
+                <div class="pin pin-ok" style="left:35%"></div>
+              </div>
+              <span class="val is-ok">118&nbsp;г/л</span>
+            </dd>
           </div>
         </dl>
 
@@ -447,19 +484,85 @@ footer p{font-size:var(--t-micro);line-height:1.5;color:var(--ink-3);max-width:7
       </div>
 
       <ol class="steps">
-        <li class="step">
+        <li class="tile step">
           <h3>Вводите показатели</h3>
           <p>Переписываете значения из бланка ОАК. Ни новых заборов, ни походов в лабораторию.</p>
         </li>
-        <li class="step">
+        <li class="tile step">
           <h3>Модель оценивает риск</h3>
           <p>Смотрит на показатели вместе, а не поодиночке — там и виден скрытый дефицит.</p>
         </li>
-        <li class="step">
+        <li class="tile step">
           <h3>Получаете объяснение</h3>
           <p>Уровень риска, разбор ключевых показателей и рекомендация по следующему шагу.</p>
         </li>
       </ol>
+    </div>
+  </section>
+
+  <section class="light">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Почему бланк не вызывает вопросов</h2>
+        <p class="lead">
+          Каждое значение по отдельности лежит в референсе. Настораживает
+          не отдельная цифра, а то, как показатели выглядят вместе.
+        </p>
+      </div>
+
+      <div class="duo">
+        <div class="tile">
+          <h3>Границы нормы широкие</h3>
+          <p>
+            Референс ферритина для женщин у лабораторий обычно 15–150&nbsp;нг/мл,
+            поэтому значение 20 попадает в «норму». Проект рекомендаций ASH
+            считает дефицитом всё, что ≤&nbsp;30.
+          </p>
+        </div>
+        <div class="tile">
+          <h3>Показатели читают поодиночке</h3>
+          <p>
+            Гемоглобин у нижней границы, MCV чуть ниже, RDW чуть выше —
+            по отдельности каждое «в целом норма». Вместе это уже картина.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="light">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Частые вопросы</h2>
+      </div>
+
+      <dl class="faq">
+        <div class="tile">
+          <dt>Это диагноз?</dt>
+          <dd>
+            Нет. Это оценка вероятности по вашему анализу — повод сходить
+            к врачу, а не замена приёму. Диагноз ставит врач.
+          </dd>
+        </div>
+        <div class="tile">
+          <dt>Нужно сдавать что-то новое?</dt>
+          <dd>
+            Нет. Нужен бланк общего анализа крови, который уже есть на руках.
+            Ни новых заборов, ни доплат.
+          </dd>
+        </div>
+        <div class="tile">
+          <dt>Сколько это стоит?</dt>
+          <dd>Бесплатно. Карта не нужна.</dd>
+        </div>
+        <div class="tile">
+          <dt>Что я получу на выходе?</dt>
+          <dd>
+            Уровень риска, разбор ключевых показателей — какие именно выбиваются
+            и насколько — и рекомендацию по следующему шагу.
+          </dd>
+        </div>
+      </dl>
     </div>
   </section>
 
