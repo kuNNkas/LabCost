@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Host: https://xn--b1ag7a2c.xn--p1ai
