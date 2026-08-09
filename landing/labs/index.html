@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VERAE для лабораторий — скрытый дефицит железа в готовом ОАК</title>
+<meta name="description" content="Модель находит в готовом общем анализе крови признаки скрытого дефицита железа. Пациент получает адресную рекомендацию и приходит за уточняющим анализом — без новых заборов и нового оборудования.">
+<link rel="canonical" href="https://верэ.рф/labs/">
+<meta name="theme-color" content="#053c2f">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="VERAE">
+<meta property="og:title" content="VERAE для лабораторий">
+<meta property="og:description" content="Скрытый дефицит железа виден в ОАК, который вы уже сделали.">
+<meta property="og:url" content="https://верэ.рф/labs/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2300a86b'/%3E%3Ctext x='16' y='22' font-family='-apple-system,Segoe UI,Arial' font-size='16' font-weight='600' fill='white' text-anchor='middle'%3EV%3C/text%3E%3C/svg%3E">
+
+<link rel="preload" href="/fonts/onest-cyrillic-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/golos-text-cyrillic-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+<link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="topbar rise rise-1">
+      <span class="wordmark">VERAE</span>
+      <nav class="aud" aria-label="Выбор аудитории">
+        <a href="/">Пациентам</a>
+        <a href="/labs/" aria-current="page">Лабораториям</a>
+      </nav>
+    </div>
+
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow rise rise-1">Лабораториям и клиникам</p>
+        <h1 class="rise rise-2">Скрытый дефицит железа уже лежит в ваших ОАК</h1>
+        <p class="lead rise rise-3">
+          Модель находит в готовом анализе признаки скрытого дефицита железа.
+          Пациент получает адресную рекомендацию и приходит за уточняющим
+          анализом — без новых заборов и нового оборудования.
+        </p>
+        <div class="actions rise rise-4">
+          <a class="btn" href="#contact">Запросить пилот</a>
+          <span class="hint">Работаем с текущим потоком лаборатории</span>
+        </div>
+      </div>
+
+      <figure class="card rise rise-4" aria-label="Пример сообщения пациенту">
+        <figcaption class="card-cap">
+          <span>Что видит пациент</span>
+          <span class="nums">сейчас</span>
+        </figcaption>
+
+        <div class="push">
+          <p class="push-from"><span class="push-dot"></span>Лаборатория</p>
+          <p class="push-text">
+            В вашем ОАК есть изменения, которые стоит уточнить.
+            Рекомендуем ферритин — <strong>1&nbsp;220&nbsp;₽</strong>
+          </p>
+          <p class="push-note">Это не диагноз. Результат обсудите с врачом</p>
+          <p class="push-cta">Записаться на добор</p>
+        </div>
+      </figure>
+    </div>
+
+    <dl class="footline">
+      <div>
+        <dt class="figure nums">15</dt>
+        <dd class="figure-label">показателей ОАК — те, что уже есть в бланке</dd>
+      </div>
+      <div>
+        <dt class="figure nums">0 ₽</dt>
+        <dd class="figure-label">на привлечение: работаем с текущим потоком</dd>
+      </div>
+      <div>
+        <dt class="figure nums">7,1 %</dt>
+        <dd class="figure-label">доля скрытого дефицита в выборке NHANES, 6 303 анализа</dd>
+      </div>
+    </dl>
+  </div>
+</header>
+
+<main>
+  <section class="light">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Что это даёт лаборатории</h2>
+        <p class="lead">
+          Анализ уже оплачен пациентом и уже лежит в ЛИС. Дальше с ним
+          сегодня не происходит ничего.
+        </p>
+      </div>
+
+      <ol class="steps">
+        <li class="tile step">
+          <h3>Текущий поток</h3>
+          <p>Не нужно приводить новых пациентов — работаем с теми, кто уже сдал ОАК.</p>
+        </li>
+        <li class="tile step">
+          <h3>Без нового оборудования</h3>
+          <p>Те же показатели, что уже печатаются в бланке. Ни реагентов, ни приборов.</p>
+        </li>
+        <li class="tile step">
+          <h3>Адресная рекомендация</h3>
+          <p>Пациент понимает, зачем ему уточняющий анализ, а не получает общий совет.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="light">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Как встраивается</h2>
+      </div>
+
+      <div class="duo">
+        <div class="tile">
+          <h3>Выгрузка из ЛИС</h3>
+          <p>
+            Забираем готовые результаты ОАК в вашем формате. Обязательны шесть
+            значений: гемоглобин, MCV, MCH, RDW, эритроциты и гематокрит, плюс
+            возраст.
+          </p>
+        </div>
+        <div class="tile">
+          <h3>Отметка и сообщение</h3>
+          <p>
+            Модель отмечает анализы с признаками скрытого дефицита. Пациенту
+            уходит рекомендация с дисклеймером — от имени лаборатории.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="light">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Статус проекта</h2>
+        <p class="lead">
+          Честно о том, где мы сейчас — чтобы вы понимали, что именно
+          обсуждаем на пилоте.
+        </p>
+      </div>
+
+      <div class="duo">
+        <div class="tile">
+          <h3>Модель обучена на открытых данных</h3>
+          <p>
+            NHANES, 6 303 анализа, доля скрытого дефицита 7,1 %. Метрики
+            на вашей популяции будут другими — их и предлагаем измерить.
+          </p>
+        </div>
+        <div class="tile">
+          <h3>Пилотов ещё не было</h3>
+          <p>
+            Мы не показываем чужих результатов как своих. Экономику считаем
+            под ваш поток на реальных цифрах, а не по среднему по рынку.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="light contact" id="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Обсудить пилот</h2>
+        <p class="lead">
+          Напишите, сколько ОАК в день проходит через лабораторию, — посчитаем
+          экономику под ваш поток: <a href="mailto:kuNNkas@yandex.ru">kuNNkas@yandex.ru</a>
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>
+      Сервис носит информационный характер и не является медицинским изделием.
+      Оценка не заменяет заключение врача.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
