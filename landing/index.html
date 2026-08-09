@@ -115,7 +115,7 @@
 
     <dl class="footline">
       <div>
-        <dt class="figure nums">15</dt>
+        <dt class="figure nums">14</dt>
         <dd class="figure-label">показателей ОАК модель читает вместе</dd>
       </div>
       <div>
@@ -165,22 +165,88 @@
         </p>
       </div>
 
-      <div class="duo">
-        <div class="tile">
-          <h3>Границы нормы широкие</h3>
-          <p>
-            Референс ферритина для женщин у лабораторий обычно 15–150&nbsp;нг/мл,
-            поэтому значение 20 попадает в «норму». Проект рекомендаций ASH
-            считает дефицитом всё, что ≤&nbsp;30.
+      <div class="compare">
+        <figure class="cmp">
+          <figcaption class="cmp-head">
+            <h3>Как читают сегодня</h3>
+            <span>референсные интервалы</span>
+          </figcaption>
+
+          <dl class="cmp-rows">
+            <div class="cmp-row">
+              <dt>HGB</dt>
+              <dd><span class="cmp-val">122 г/л</span><span class="cmp-note">нижняя граница нормы</span></dd>
+            </div>
+            <div class="cmp-row">
+              <dt>MCV</dt>
+              <dd><span class="cmp-val">79 фл</span><span class="cmp-note">чуть ниже нормы</span></dd>
+            </div>
+            <div class="cmp-row">
+              <dt>MCH</dt>
+              <dd><span class="cmp-val">26,4 пг</span><span class="cmp-note">нижняя граница нормы</span></dd>
+            </div>
+            <div class="cmp-row">
+              <dt>RDW</dt>
+              <dd><span class="cmp-val">15,1 %</span><span class="cmp-note">чуть выше нормы</span></dd>
+            </div>
+          </dl>
+
+          <p class="cmp-foot">
+            Порог осложняет дело: референс ферритина для женщин у лабораторий
+            обычно 15–150&nbsp;нг/мл, поэтому значение 20 попадает в «норму» —
+            хотя проект рекомендаций ASH считает дефицитом всё, что ≤&nbsp;30.
           </p>
-        </div>
-        <div class="tile">
-          <h3>Показатели читают поодиночке</h3>
-          <p>
-            Гемоглобин у нижней границы, MCV чуть ниже, RDW чуть выше —
-            по отдельности каждое «в целом норма». Вместе это уже картина.
+
+          <p class="cmp-verdict">
+            <span class="label">Вывод</span>
+            <span class="value value--miss">В целом норма. Контроль через 3–6 месяцев</span>
           </p>
-        </div>
+        </figure>
+
+        <figure class="cmp cmp--verae">
+          <figcaption class="cmp-head">
+            <h3>Как читает VERAE</h3>
+            <span>14 показателей одновременно</span>
+          </figcaption>
+
+          <p class="cmp-score">
+            <span class="cmp-pct nums">73 %</span>
+            <span class="cmp-pct-label">вероятность скрытого дефицита железа</span>
+          </p>
+
+          <dl class="shap">
+            <div class="shap-row">
+              <dt>MCV ↓</dt>
+              <dd class="shap-track" aria-hidden="true"><span class="shap-fill" style="width:100%"></span></dd>
+              <dd>0,21</dd>
+            </div>
+            <div class="shap-row">
+              <dt>RDW ↑</dt>
+              <dd class="shap-track" aria-hidden="true"><span class="shap-fill" style="width:86%"></span></dd>
+              <dd>0,18</dd>
+            </div>
+            <div class="shap-row">
+              <dt>MCH ↓</dt>
+              <dd class="shap-track" aria-hidden="true"><span class="shap-fill" style="width:67%"></span></dd>
+              <dd>0,14</dd>
+            </div>
+            <div class="shap-row">
+              <dt>HGB ↓</dt>
+              <dd class="shap-track" aria-hidden="true"><span class="shap-fill" style="width:52%"></span></dd>
+              <dd>0,11</dd>
+            </div>
+          </dl>
+
+          <p class="cmp-foot">
+            Вклады показателей рассчитаны по SHAP: решение модели можно объяснить,
+            а не только предъявить. Значения — пример типичного паттерна.
+          </p>
+
+          <p class="cmp-verdict">
+            <span class="label">Вывод</span>
+            <span class="value value--hit">Рекомендация: ферритин</span>
+          </p>
+        </figure>
       </div>
     </div>
   </section>

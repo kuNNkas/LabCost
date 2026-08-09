@@ -399,3 +399,111 @@ footer p{font-size:var(--t-micro);line-height:1.5;color:var(--ink-3);max-width:7
 @media (min-width:40rem){
   .push{padding-inline:1.5rem}
 }
+
+/* =========================================================================
+   Сравнение «как читают сегодня / как читает VERAE» — слайд 04 деки
+   ========================================================================= */
+
+.compare{
+  display:grid;gap:clamp(1rem,2vw,1.5rem);
+  margin-top:clamp(2.5rem,5vw,3.5rem);
+}
+.cmp{
+  padding:clamp(1.25rem,2.5vw,1.75rem);
+  border-radius:var(--r-lg);
+  background:var(--paper-2);
+}
+.cmp--verae{background:var(--jade-wash)}
+
+.cmp-head{
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:.25rem .625rem;
+  padding-bottom:1rem;border-bottom:1px solid var(--line);
+}
+.cmp-head h3{font-size:1.0625rem}
+.cmp-head span{font-size:var(--t-micro);color:var(--ink-3)}
+
+/* Строки бланка: показатель — значение — трактовка */
+.cmp-rows{margin:0}
+.cmp-row{
+  display:grid;grid-template-columns:4.5rem 1fr;align-items:baseline;
+  gap:.25rem .75rem;padding:.625rem 0;
+  border-bottom:1px solid var(--line);
+}
+.cmp-row:last-of-type{border-bottom:0}
+.cmp-row dt{
+  font-family:var(--font-display);font-weight:600;font-size:var(--t-small);
+  color:var(--ink);
+}
+.cmp-row dd{
+  margin:0;display:flex;flex-wrap:wrap;align-items:baseline;gap:.25rem .625rem;
+}
+.cmp-val{font-size:var(--t-small);font-variant-numeric:tabular-nums;color:var(--ink)}
+.cmp-note{font-size:var(--t-micro);color:var(--ink-3)}
+
+/* Вероятность и вклады показателей */
+.cmp-score{display:flex;flex-wrap:wrap;align-items:baseline;gap:.25rem .75rem;padding:1rem 0 .25rem}
+.cmp-pct{
+  font-family:var(--font-display);font-size:clamp(2.25rem,1.9rem + 1.5vw,3rem);
+  font-weight:600;letter-spacing:-.03em;line-height:1;color:var(--jade-deep);
+}
+.cmp-pct-label{font-size:var(--t-micro);color:var(--ink-3);max-width:16ch}
+
+.shap{margin:1rem 0 0}
+.shap-row{
+  display:grid;grid-template-columns:4rem 1fr 2.5rem;align-items:center;
+  gap:.625rem;padding:.3125rem 0;
+}
+.shap-row dt{font-size:var(--t-micro);color:var(--ink-2);font-variant-numeric:tabular-nums}
+.shap-row dd{margin:0;font-size:var(--t-micro);text-align:right;font-variant-numeric:tabular-nums;color:var(--ink-3)}
+/* Столбец прижат к базовой линии: скругляется только конец данных. */
+.shap-track{height:.5rem;border-radius:4px;background:rgba(4,114,76,.14);overflow:hidden}
+.shap-fill{display:block;height:100%;border-radius:0 4px 4px 0;background:var(--jade-deep)}
+
+.cmp-foot{margin-top:1.25rem;font-size:var(--t-micro);line-height:1.45;color:var(--ink-3);text-wrap:pretty}
+.cmp-verdict{
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:.25rem .75rem;
+  margin-top:1.25rem;padding-top:1rem;border-top:1px solid var(--line);
+}
+.cmp-verdict .label{
+  font-family:var(--font-display);font-size:var(--t-micro);font-weight:600;
+  letter-spacing:var(--ls-eyebrow);text-transform:uppercase;color:var(--ink-3);
+}
+.cmp-verdict .value{font-family:var(--font-display);font-size:1.0625rem;font-weight:600}
+.cmp-verdict .value--miss{color:var(--red)}
+.cmp-verdict .value--hit{color:var(--jade-deep)}
+
+/* =========================================================================
+   Воронка потока лаборатории — слайд 02 деки
+   ========================================================================= */
+
+.funnel{margin:clamp(2.5rem,5vw,3.5rem) 0 0}
+.funnel-row{
+  display:grid;grid-template-columns:1fr;gap:.5rem;
+  padding:1rem 0;border-bottom:1px solid var(--line);
+}
+.funnel-row:last-of-type{border-bottom:0}
+.funnel-row dt{font-size:var(--t-small);color:var(--ink-2)}
+.funnel-row dd{margin:0;display:grid;grid-template-columns:1fr auto;align-items:center;gap:1rem}
+.funnel-track{height:2rem;border-radius:4px;background:var(--paper-2);overflow:hidden}
+.funnel-track--empty{background:none;border:1px dashed #cfd4cf}
+.funnel-bar{display:block;height:100%;border-radius:0 4px 4px 0}
+/* Заливки из деки (#d7dcd7 / #f0c076) валидатор завалил: 1.35:1 и 1.64:1
+   к бумаге. На проекторе читалось, на экране — нет. Затемнено до >= 3:1. */
+.funnel-bar--all{background:#7d8a83}
+.funnel-bar--risk{background:#b8730d}
+.funnel-num{text-align:right;min-width:6.5rem}
+.funnel-num .figure{font-size:clamp(1.5rem,1.3rem + .9vw,2rem);color:var(--ink)}
+.funnel-num .figure--amber{color:var(--amber)}
+.funnel-num .figure--red{color:var(--red)}
+.funnel-num .unit{display:block;font-size:var(--t-micro);color:var(--ink-3);margin-top:.125rem}
+
+@media (min-width:48rem){
+  .compare{grid-template-columns:repeat(2,1fr)}
+  .funnel-row{grid-template-columns:14rem 1fr;align-items:center;gap:1.5rem}
+}
+
+.footnote{
+  margin-top:clamp(1.5rem,3vw,2rem);
+  font-size:var(--t-micro);line-height:1.5;color:var(--ink-3);
+  max-width:80ch;text-wrap:pretty;
+}

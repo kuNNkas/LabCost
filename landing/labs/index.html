@@ -68,7 +68,7 @@
 
     <dl class="footline">
       <div>
-        <dt class="figure nums">15</dt>
+        <dt class="figure nums">14</dt>
         <dd class="figure-label">показателей ОАК — те, что уже есть в бланке</dd>
       </div>
       <div>
@@ -108,6 +108,62 @@
           <p>Пациент понимает, зачем ему уточняющий анализ, а не получает общий совет.</p>
         </li>
       </ol>
+    </div>
+  </section>
+
+  <section class="light">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Что происходит с потоком сегодня</h2>
+        <p class="lead">
+          Анализ уже оплачен, результат уже в ЛИС — но дальше с ним
+          не происходит ничего.
+        </p>
+      </div>
+
+      <dl class="funnel">
+        <div class="funnel-row">
+          <dt>Поток лаборатории</dt>
+          <dd>
+            <div class="funnel-track" aria-hidden="true">
+              <span class="funnel-bar funnel-bar--all" style="width:100%"></span>
+            </div>
+            <div class="funnel-num">
+              <span class="figure nums">1 000</span>
+              <span class="unit">ОАК в день</span>
+            </div>
+          </dd>
+        </div>
+        <div class="funnel-row">
+          <dt>Паттерн скрытого дефицита</dt>
+          <dd>
+            <div class="funnel-track" aria-hidden="true">
+              <span class="funnel-bar funnel-bar--risk" style="width:25%"></span>
+            </div>
+            <div class="funnel-num">
+              <span class="figure figure--amber nums">250</span>
+              <span class="unit">каждый четвёртый</span>
+            </div>
+          </dd>
+        </div>
+        <div class="funnel-row">
+          <dt>Получают рекомендацию</dt>
+          <dd>
+            <div class="funnel-track funnel-track--empty" aria-hidden="true"></div>
+            <div class="funnel-num">
+              <span class="figure figure--red nums">0</span>
+              <span class="unit">сегодня — ни один</span>
+            </div>
+          </dd>
+        </div>
+      </dl>
+
+      <p class="footnote">
+        Иллюстрация, а не результат замера. Доля 25 % — Mount Sinai,
+        BMJ Open 2025, n = 211 486. Поток 1 000 ОАК в день — мощность
+        регионального узла централизованной лаборатории. Под ваш реальный
+        поток считаем отдельно.
+      </p>
     </div>
   </section>
 
